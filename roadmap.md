@@ -57,3 +57,5 @@
   * Smashdown 'crowns'
 
   * Top 5 characters winrates?
+
+  * Save user costume preferences?

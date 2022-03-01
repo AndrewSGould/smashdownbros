@@ -1,1 +1,5 @@
-<sdb-character>
+<ul>
+  <li *ngFor="let character of roster.fighters">
+    <sdb-fighter [portrait]="character.smallPortrait"></sdb-fighter>
+  </li>
+</ul>

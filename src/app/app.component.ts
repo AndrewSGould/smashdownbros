@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IRoster, fighters } from './data/fighter'
 
 @Component({
   selector: 'sdb-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'SmashdownBros';
+  title: string = 'SmashdownBros';
+  roster: IRoster = { fighters };
 }
