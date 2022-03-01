@@ -1,9 +1,11 @@
 export interface IFighter {
   fighterNo: number,
   name: string,
-  smallPortrait: string
-  //TODO: add 'alternative names' to search on
-  // eg. 'PT', 'aegis'
+  smallPortrait: string,
+  aliases?: Array<string>
+  //TODO: use aliases to tag characters?
+  //  eg. 'shoto', 'spacey', 'swordie'?
+  //  maybe a new property?
 }
 
 export interface IRoster {
@@ -19,7 +21,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 2,
     name: 'Donkey Kong',
-    smallPortrait: 'chara_0_donkey_00.png'
+    smallPortrait: 'chara_0_donkey_00.png',
+    aliases: ['dk', 'donkeykong']
   },
   {
     fighterNo: 3,
@@ -34,7 +37,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 5,
     name: 'Dark Samus',
-    smallPortrait: 'chara_0_samusd_00.png'
+    smallPortrait: 'chara_0_samusd_00.png',
+    aliases: ['ds', 'darksamus']
   },
   {
     fighterNo: 6,
@@ -69,7 +73,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 12,
     name: 'Captain Falcon',
-    smallPortrait: 'chara_0_captain_00.png'
+    smallPortrait: 'chara_0_captain_00.png',
+    aliases: ['cf', 'captainfalcon']
   },
   {
     fighterNo: 13,
@@ -94,12 +99,14 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 17,
     name: 'Ice Climbers',
-    smallPortrait: 'chara_0_ice_climber_00.png'
+    smallPortrait: 'chara_0_ice_climber_00.png',
+    aliases: ['ic', 'iceys', 'icys', 'iceclimbers']
   },
   {
     fighterNo: 18,
     name: 'Sheik',
-    smallPortrait: 'chara_0_sheik_00.png'
+    smallPortrait: 'chara_0_sheik_00.png',
+    aliases: ['shiek']
   },
   {
     fighterNo: 19,
@@ -109,7 +116,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 20,
     name: 'Dr. Mario',
-    smallPortrait: 'chara_0_mariod_00.png'
+    smallPortrait: 'chara_0_mariod_00.png',
+    aliases: ['dr mario', 'drmario', 'doctor mario', 'doctormario', 'dm']
   },
   {
     fighterNo: 21,
@@ -134,7 +142,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 25,
     name: 'Young Link',
-    smallPortrait: 'chara_0_younglink_00.png'
+    smallPortrait: 'chara_0_younglink_00.png',
+    aliases: ['yink', 'younglink', 'yl']
   },
   {
     fighterNo: 26,
@@ -144,7 +153,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 27,
     name: 'Mewtwo',
-    smallPortrait: 'chara_0_mewtwo_00.png'
+    smallPortrait: 'chara_0_mewtwo_00.png',
+    aliases: ['m2']
   },
   {
     fighterNo: 28,
@@ -159,12 +169,14 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 30,
     name: 'Mr. Game & Watch',
-    smallPortrait: 'chara_0_gamewatch_00.png'
+    smallPortrait: 'chara_0_gamewatch_00.png',
+    aliases: ['mr game and watch', 'mrgameandwatch', 'game and watch', 'gameandwatch', 'gw', 'g&w', 'mgw']
   },
   {
     fighterNo: 31,
     name: 'Meta Knight',
-    smallPortrait: 'chara_0_metaknight_00.png'
+    smallPortrait: 'chara_0_metaknight_00.png',
+    aliases: ['mk', 'metaknight']
   },
   {
     fighterNo: 32,
@@ -174,12 +186,14 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 33,
     name: 'Dark Pit',
-    smallPortrait: 'chara_0_pitb_00.png'
+    smallPortrait: 'chara_0_pitb_00.png',
+    aliases: ['dp', 'darkpit']
   },
   {
     fighterNo: 34,
     name: 'Zero Suit Samus',
-    smallPortrait: 'chara_0_szerosuit_00.png'
+    smallPortrait: 'chara_0_szerosuit_00.png',
+    aliases: ['zss', 'zero suit', 'zerosuit']
   },
   {
     fighterNo: 35,
@@ -198,13 +212,15 @@ export const fighters: Array<IFighter> = [
   },
   {
     fighterNo: 38,
-    name: 'Pokemon Trainer',
-    smallPortrait: 'chara_0_ptrainer_00.png'
+    name: 'Pokémon Trainer',
+    smallPortrait: 'chara_0_ptrainer_00.png',
+    aliases: ['pt', 'pokemontrainer', 'poketrainer', 'pokemon trainer']
   },
   {
     fighterNo: 39,
     name: 'Diddy Kong',
-    smallPortrait: 'chara_0_diddy_00.png'
+    smallPortrait: 'chara_0_diddy_00.png',
+    aliases: ['dk', 'diddykong']
   },
   {
     fighterNo: 40,
@@ -219,7 +235,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 42,
     name: 'King Dedede',
-    smallPortrait: 'chara_0_dedede_00.png'
+    smallPortrait: 'chara_0_dedede_00.png',
+    aliases: ['dedede', 'd3', 'kingdedede', 'kd']
   },
   {
     fighterNo: 43,
@@ -234,12 +251,14 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 45,
     name: 'R.O.B.',
-    smallPortrait: 'chara_0_robot_00.png'
+    smallPortrait: 'chara_0_robot_00.png',
+    aliases: ['rob']
   },
   {
     fighterNo: 46,
     name: 'Toon Link',
-    smallPortrait: 'chara_0_toonlink_00.png'
+    smallPortrait: 'chara_0_toonlink_00.png',
+    aliases: ['tink', 'toonlink', 'tl']
   },
   {
     fighterNo: 47,
@@ -254,22 +273,26 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 49,
     name: 'Mega Man',
-    smallPortrait: 'chara_0_rockman_00.png'
+    smallPortrait: 'chara_0_rockman_00.png',
+    aliases: ['megaman', 'mm']
   },
   {
     fighterNo: 50,
     name: 'Wii Fit Trainer',
-    smallPortrait: 'chara_0_wiifit_00.png'
+    smallPortrait: 'chara_0_wiifit_00.png',
+    aliases: ['wiifit', 'wft']
   },
   {
     fighterNo: 51,
     name: 'Rosalina & Luma',
-    smallPortrait: 'chara_0_rosetta_00.png'
+    smallPortrait: 'chara_0_rosetta_00.png',
+    aliases: ['rosalina and luma', 'rl', 'randl']
   },
   {
     fighterNo: 52,
     name: 'Little Mac',
-    smallPortrait: 'chara_0_littlemac_00.png'
+    smallPortrait: 'chara_0_littlemac_00.png',
+    aliases: ['mac', 'lm', 'littlemac']
   },
   {
     fighterNo: 53,
@@ -284,7 +307,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 55,
     name: 'Pac-Man',
-    smallPortrait: 'chara_0_pacman_00.png'
+    smallPortrait: 'chara_0_pacman_00.png',
+    aliases: ['pacman']
   },
   {
     fighterNo: 56,
@@ -299,12 +323,14 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 58,
     name: 'Bowser Jr.',
-    smallPortrait: 'chara_0_koopajr_00.png'
+    smallPortrait: 'chara_0_koopajr_00.png',
+    aliases: ['bj', 'bowserjr']
   },
   {
     fighterNo: 59,
     name: 'Duck Hunt',
-    smallPortrait: 'chara_0_duckhunt_00.png'
+    smallPortrait: 'chara_0_duckhunt_00.png',
+    aliases: ['dh', 'duckhunt']
   },
   {
     fighterNo: 60,
@@ -354,7 +380,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 69,
     name: 'King K. Rool',
-    smallPortrait: 'chara_0_krool_00.png'
+    smallPortrait: 'chara_0_krool_00.png',
+    aliases: ['krool', 'kkr', 'kr', 'king krool', 'kingk']
   },
   {
     fighterNo: 70,
@@ -369,7 +396,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 72,
     name: 'Piranha Plant',
-    smallPortrait: 'chara_0_packun_00.png'
+    smallPortrait: 'chara_0_packun_00.png',
+    aliases: ['pp', 'piranhaplant', 'pirahna']
   },
   {
     fighterNo: 73,
@@ -384,7 +412,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 75,
     name: 'Banjo & Kazooie',
-    smallPortrait: 'chara_0_buddy_00.png'
+    smallPortrait: 'chara_0_buddy_00.png',
+    aliases: ['bk', 'bak', 'bandk', 'kazooie']
   },
   {
     fighterNo: 76,
@@ -399,7 +428,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 78,
     name: 'Min Min',
-    smallPortrait: 'chara_0_tantan_00.png'
+    smallPortrait: 'chara_0_tantan_00.png',
+    aliases: ['minmin']
   },
   {
     fighterNo: 79,
@@ -414,7 +444,8 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 81,
     name: 'Pyra/Mythra',
-    smallPortrait: 'chara_0_eflame_first_00.png'
+    smallPortrait: 'chara_0_eflame_first_00.png',
+    aliases: ['mythra', 'aegis']
   },
   {
     fighterNo: 82,
@@ -429,17 +460,20 @@ export const fighters: Array<IFighter> = [
   {
     fighterNo: 84,
     name: 'Mii Brawler',
-    smallPortrait: 'chara_0_miifighter_00.png'
+    smallPortrait: 'chara_0_miifighter_00.png',
+    aliases: ['mb', 'brawler']
   },
   {
     fighterNo: 85,
     name: 'Mii Swordfighter',
-    smallPortrait: 'chara_0_miiswordsman_00.png'
+    smallPortrait: 'chara_0_miiswordsman_00.png',
+    aliases: ['swordfighter']
   },
   {
     fighterNo: 86,
     name: 'Mii Gunner',
-    smallPortrait: 'chara_0_miigunner_00.png'
+    smallPortrait: 'chara_0_miigunner_00.png',
+    aliases: ['gunner']
   },
   {
     fighterNo: 0,
