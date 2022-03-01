@@ -1,8 +1,8 @@
 # SmashdownBros
 
-## About
+An online companion app for Nintendo's Super Smash Bros game series
 
-### Purpose
+## About
 
 While Nintendo created an incredible game, it's no secret that their online offerings leave a lot to be desired. This tool was inspired by a key game mode in Super Smash Bros Ultimate being unavailable in online play. While this idea has grown beyond the scope of that relatively straightforward game mode, the goal hasn't changed: attempt to fill this gap so everyone can enjoy  Smash online with their friends!
 
@@ -13,6 +13,12 @@ Have something you'd really like to see? Tell me about it! [Click here and selec
 ### Contributing
 
 Would you like to contribute to the project? While I am not actively looking for assistance, if this project inspires you feel free to reach out and we can discuss. I am rather fond of 'giving back' so if you're still new to coding but have the self-driving passion, I'd be happy to mentor you as you help make changes to the project
+
+### Author Support
+
+Do you like the project? Want to support independent development? Did you have a good time using it? Help me keep the development going:
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=BGET89JUW457S)
 
 ---
 
