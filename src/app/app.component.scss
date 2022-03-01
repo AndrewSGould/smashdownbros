@@ -1,0 +1,16 @@
+.roster {
+  list-style: none;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 0 0;
+}
+
+.fighter {
+
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}

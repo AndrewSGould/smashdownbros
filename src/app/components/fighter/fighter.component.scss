@@ -1,4 +1,8 @@
 .fighter-portrait {
   height: 50px;
-  border: 2px solid black;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
 }

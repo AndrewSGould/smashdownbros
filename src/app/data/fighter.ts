@@ -474,10 +474,5 @@ export const fighters: Array<IFighter> = [
     name: 'Mii Gunner',
     smallPortrait: 'chara_0_miigunner_00.png',
     aliases: ['gunner']
-  },
-  {
-    fighterNo: 0,
-    name: 'Random',
-    smallPortrait: ''
   }
 ]
