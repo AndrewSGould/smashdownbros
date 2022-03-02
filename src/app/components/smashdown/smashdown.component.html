@@ -1,0 +1,43 @@
+<section style="text-align: center;" *ngIf="!playerConfigView">
+  <div>
+    <span>Select fighters you wish to disable for the Smashdown</span>
+  </div>
+  <button mat-flat-button style="width:100px;" (click)="playerConfigView = true;">
+    <ng-container *ngIf="disabledFighters.length > 0; else skip_button">Continue</ng-container>
+    <ng-template #skip_button>Skip</ng-template>
+  </button> 
+
+  <!-- TODO: add a filter where you can type in the fighter -->
+  <ul class="roster">
+    <ng-container *ngFor="let fighter of Roster.Fighters; let i = index">
+      <li class="fighter" [ngClass]="{disabled: disableFighter(fighter.id)}">
+        <sdb-fighter 
+          [portrait]="fighter.smallPortrait" 
+          (click)="excludeFighter(fighter.id)">
+        </sdb-fighter>
+      </li>
+    </ng-container>
+  </ul>
+</section>
+
+<section style="text-align: center;" *ngIf="playerConfigView">
+  <div>
+    <span>Fighter1, Fighter2, Fighter3 have been disabled for this smashdown</span>
+    OR
+    <span>No characters have been disabled <button>Restart</button></span>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label># of players?</mat-label>
+    <mat-select [(value)]="playerCount">
+      <mat-option value="option1">1</mat-option>
+      <mat-option default value="option2">2</mat-option>
+      <mat-option value="option3">3</mat-option>
+      <mat-option value="option3">4</mat-option>
+      <mat-option value="option3">5</mat-option>
+      <mat-option value="option3">6</mat-option>
+      <mat-option value="option3">7</mat-option>
+      <mat-option value="option3">8</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- on change, display that many name entries  -->
+</section>

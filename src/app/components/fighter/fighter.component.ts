@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './fighter.component.html',
   styleUrls: ['./fighter.component.scss']
 })
-export class CharacterComponent implements OnInit {
+export class FighterComponent implements OnInit {
 
   constructor() { }
 

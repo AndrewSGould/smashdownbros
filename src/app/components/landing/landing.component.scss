@@ -1,0 +1,20 @@
+nav {
+
+  & > a {
+    width: 100px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    position: absolute;
+    top: 35%;
+    left: 42%;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    &:hover {
+      background-color: darken(white, 20%);
+    }
+  }
+}
