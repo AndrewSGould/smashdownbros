@@ -1,0 +1,42 @@
+<section style="text-align: center;">
+  <div *ngIf="excludedFighters.length > 0; else no_excludes">
+    <ng-container *ngFor="let fighter of excludedFighters; let last = last">
+      <span *ngIf="!last">{{fighter.name}}, </span>
+      <span *ngIf="last">{{fighter.name}}</span>
+    </ng-container>
+    <span> have been disabled for this Smashdown</span>
+  </div>
+  <ng-template #no_excludes>
+    <span>No fighters have been disabled 
+      <button mat-flat-button routerLink="/smashdown" routerLinkActive="active">Restart</button>
+    </span>
+  </ng-template>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label># of players?</mat-label>
+    <mat-select [(value)]="playerCount" (selectionChange)="generatePlayerList()">
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="4">4</mat-option>
+      <mat-option value="5">5</mat-option>
+      <mat-option value="6">6</mat-option>
+      <mat-option value="7">7</mat-option>
+      <mat-option value="8">8</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br /><br />
+  <ng-container *ngFor="let player of playerList; let i = index;">
+    <mat-form-field appearance="fill">
+      <mat-label>Player Name</mat-label>
+      <input matInput (change)="bindPlayerName($event.target, i)" /> <!-- TODO: better way to do this..-->
+    </mat-form-field>
+    <br />
+  </ng-container>
+  
+  <button mat-flat-button [disabled]="playerList.length < 1" (click)="submitPlayerList()"
+    routerLink="/smashdown/matches" routerLinkActive="active"  
+  >
+    Continue
+  </button>
+</section>

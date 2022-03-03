@@ -1,0 +1,11 @@
+<section style="text-align: center; margin-top: 100px;">
+  <div class="player-portraits">
+    <ng-container *ngFor="let player of activePlayers">
+      <sdb-players-pick [playerName]="player.name" [fighterId]="randomFighter()"></sdb-players-pick>
+    </ng-container>
+  </div>
+  <div class="report-results">report results</div>
+  <div class="match-history">match history</div>
+</section>
+
+<!-- TODO NEXT: Make Pick/Report Results button real -->

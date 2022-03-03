@@ -1,0 +1,12 @@
+.players-fighter {
+  margin: 0 30px;
+
+  & > img {
+    background-color: rgb(181, 236, 255);
+  }
+
+  & > .player-name {
+    display: block;
+    background-color: darken(rgb(181, 236, 255), 20%);
+  }
+}

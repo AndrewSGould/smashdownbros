@@ -1,0 +1,23 @@
+<section style="text-align: center;">
+  <h2>Select fighters to disable</h2>
+  <div class="actions-container">
+    <button mat-flat-button style="width:100px;" routerLink="/smashdown/game-config" routerLinkActive="active">
+      <ng-container *ngIf="disabledFighters.length > 0; else skip_button">Continue</ng-container>
+      <ng-template #skip_button>Skip</ng-template>
+    </button>
+  </div>
+
+  <!-- TODO: add a filter where you can type in the fighter -->
+  <ul class="roster">
+    <ng-container *ngFor="let fighter of Roster.Fighters; let i = index">
+      <li class="fighter" [ngClass]="{disabled: disableFighter(fighter.id)}">
+        <sdb-fighter 
+          [portrait]="fighter.smallPortrait" 
+          (click)="excludeFighter(fighter.id)">
+        </sdb-fighter>
+      </li>
+    </ng-container>
+  </ul>
+</section>
+
+<router-outlet></router-outlet>
