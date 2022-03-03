@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   
   { path: '',   redirectTo: '/landing', pathMatch: 'full' },
-  //{ path: '**', component: PageNotFoundComponent } //TODO: add pagenotfound
+  { path: '**', component: LandingComponent } //TODO: add pagenotfound
 ];
 
 @NgModule({
