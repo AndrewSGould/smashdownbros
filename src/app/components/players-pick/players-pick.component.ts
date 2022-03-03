@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ActivePlayer } from 'src/app/data/player';
 import { Fighter, Roster } from 'src/app/data/roster';
 
 @Component({
@@ -6,16 +7,13 @@ import { Fighter, Roster } from 'src/app/data/roster';
   templateUrl: './players-pick.component.html',
   styleUrls: ['./players-pick.component.scss']
 })
-export class PlayersPickComponent implements OnInit {
+export class PlayersPickComponent {
 
   constructor() { }
 
-  @Input() playerName: string = '';
-  @Input() fighterId: number = 0;
-  pickedFighter: Fighter = new Fighter;
-  Roster: Roster = Roster;
+  @Input() activePlayer: ActivePlayer = new ActivePlayer;
 
-  ngOnInit(): void {
-    this.pickedFighter = Roster.fighterLookup(this.fighterId);
+  ngOnChanges() {
+
   }
 }

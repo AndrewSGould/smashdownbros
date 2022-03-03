@@ -1,11 +1,14 @@
 <section style="text-align: center; margin-top: 100px;">
-  <div class="player-portraits">
-    <ng-container *ngFor="let player of activePlayers">
-      <sdb-players-pick [playerName]="player.name" [fighterId]="randomFighter()"></sdb-players-pick>
-    </ng-container>
+  <div class="report-results">
+    <button mat-flat-button *ngIf="!matchInProgress" (click)="startMatch()">New Match</button>
+    <button mat-flat-button *ngIf="matchInProgress" (click)="finishMatch()">Report Results</button>
   </div>
-  <div class="report-results">report results</div>
-  <div class="match-history">match history</div>
+  <div class="player-portraits">
+    <div *ngFor="let player of activePlayers">
+      <sdb-players-pick [activePlayer]="player"></sdb-players-pick>
+      <div class="match-history" *ngFor="let match of player.matchHistory">
+        <span>{{match.fighter.name}} <span>{{match.win ? '(W)' : '(L)'}}</span></span>
+      </div>
+    </div>
+  </div>
 </section>
-
-<!-- TODO NEXT: Make Pick/Report Results button real -->

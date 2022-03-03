@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RosterSelectorComponent } from './components/roster-selector/roster-selector.component';
 import { GameConfigComponent } from './components/game-config/game-config.component';
 import { MatchesComponent } from './components/matches/matches.component';
 import { SweatToggleComponent } from './components/sweat-toggle/sweat-toggle.component';
 import { PlayersPickComponent } from './components/players-pick/players-pick.component';
+import { MatchWinnerComponent } from './components/match-winner/match-winner.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { PlayersPickComponent } from './components/players-pick/players-pick.com
     GameConfigComponent,
     MatchesComponent,
     SweatToggleComponent,
-    PlayersPickComponent
+    PlayersPickComponent,
+    MatchWinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { PlayersPickComponent } from './components/players-pick/players-pick.com
     BrowserAnimationsModule,
     MatSelectModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

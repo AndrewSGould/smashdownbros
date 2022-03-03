@@ -1,0 +1,17 @@
+.match-winner_container {
+  display: flex;
+  transition: all .2s linear;
+
+  & .players-fighter {
+    cursor: pointer;
+    transition: all .2s linear;
+  }
+
+  &:hover .players-fighter {
+    filter: grayscale(1);
+  }
+
+  & .players-fighter:hover {
+    filter: grayscale(0);
+  }
+}

@@ -1,0 +1,6 @@
+<section class="match-winner_container">
+  <ng-container *ngFor="let player of data.activePlayers">
+    <sdb-players-pick class="players-fighter" [activePlayer]="player"
+      (click)="selectWinner(player)"></sdb-players-pick>
+  </ng-container>
+</section>

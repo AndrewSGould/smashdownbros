@@ -34,6 +34,8 @@ export class GameConfigComponent implements OnInit {
 
   submitPlayerList() {
     this.sdbService.updatePlayerList(this.playerList);
+    //TODO: players names MUST be unique (do they have to be?)
+    //TODO: other error handling stuff
   }
 
   bindPlayerName(event: any, index: number) {
