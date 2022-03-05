@@ -26,6 +26,12 @@ export class MatchesComponent implements OnInit {
       this.activePlayers = new Array<ActivePlayer>();
       this.activePlayers = response;
     });
+
+    this.sdbService.excludedFighters.subscribe(response => {
+      this.fighterPool = this.fighterPool.filter(fighter => !response.includes(fighter));
+    });
+
+    console.log(this.fighterPool);
   }
 
   startMatch() {

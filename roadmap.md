@@ -38,7 +38,7 @@
 
 ## Version 4 - Statistics
 
-* Store character-specific win/los rates across all games
+* Store character-specific win/loss rates across all games
 
 * Store pick/ban/dodge rates
 

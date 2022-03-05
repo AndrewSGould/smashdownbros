@@ -3,13 +3,9 @@ export class Fighter {
   name: string = '';
   smallPortrait: string = '';
   aliases?: Array<string>;
-  //TODO: use aliases to tag characters?
-  //  eg. 'shoto', 'spacey', 'swordie'?
-  //  maybe a new property?
 }
 
 export class Roster {
-  // fighters: Array<Fighter> = fighters;
   static fighterLookup(fighterId: number): Fighter {
     return Roster.Fighters[fighterId - 1];
   }
@@ -85,7 +81,8 @@ export class Roster {
     {
       id: 13,
       name: 'Jigglypuff',
-      smallPortrait: 'chara_0_purin_00.png'
+      smallPortrait: 'chara_0_purin_00.png',
+      aliases: ['puff']
     },
     {
       id: 14,
@@ -111,8 +108,7 @@ export class Roster {
     {
       id: 18,
       name: 'Sheik',
-      smallPortrait: 'chara_0_sheik_00.png',
-      aliases: ['shiek']
+      smallPortrait: 'chara_0_sheik_00.png'
     },
     {
       id: 19,
@@ -199,7 +195,7 @@ export class Roster {
       id: 34,
       name: 'Zero Suit Samus',
       smallPortrait: 'chara_0_szerosuit_00.png',
-      aliases: ['zss', 'zero suit', 'zerosuit']
+      aliases: ['zss', 'zerosuit']
     },
     {
       id: 35,
@@ -242,7 +238,7 @@ export class Roster {
       id: 42,
       name: 'King Dedede',
       smallPortrait: 'chara_0_dedede_00.png',
-      aliases: ['dedede', 'd3', 'kingdedede', 'kd']
+      aliases: ['dedede', 'd3', 'kingdedede', 'kd', 'ddd']
     },
     {
       id: 43,
@@ -252,7 +248,8 @@ export class Roster {
     {
       id: 44,
       name: 'Lucario',
-      smallPortrait: 'chara_0_lucario_00.png'
+      smallPortrait: 'chara_0_lucario_00.png',
+      aliases: ['luke']
     },
     {
       id: 45,
@@ -280,7 +277,7 @@ export class Roster {
       id: 49,
       name: 'Mega Man',
       smallPortrait: 'chara_0_rockman_00.png',
-      aliases: ['megaman', 'mm']
+      aliases: ['megaman', 'mm', 'rock man', 'rockman']
     },
     {
       id: 50,
@@ -314,7 +311,7 @@ export class Roster {
       id: 55,
       name: 'Pac-Man',
       smallPortrait: 'chara_0_pacman_00.png',
-      aliases: ['pacman']
+      aliases: ['pacman', 'pac man']
     },
     {
       id: 56,
@@ -330,7 +327,7 @@ export class Roster {
       id: 58,
       name: 'Bowser Jr.',
       smallPortrait: 'chara_0_koopajr_00.png',
-      aliases: ['bj', 'bowserjr']
+      aliases: ['bj', 'bowserjr', 'junior']
     },
     {
       id: 59,
@@ -376,12 +373,14 @@ export class Roster {
     {
       id: 67,
       name: 'Simon',
-      smallPortrait: 'chara_0_simon_00.png'
+      smallPortrait: 'chara_0_simon_00.png',
+      aliases: ['belmont']
     },
     {
       id: 68,
       name: 'Richter',
-      smallPortrait: 'chara_0_richter_00.png'
+      smallPortrait: 'chara_0_richter_00.png',
+      aliases: ['belmont']
     },
     {
       id: 69,
@@ -403,7 +402,7 @@ export class Roster {
       id: 72,
       name: 'Piranha Plant',
       smallPortrait: 'chara_0_packun_00.png',
-      aliases: ['pp', 'piranhaplant', 'pirahna']
+      aliases: ['pp', 'piranhaplant']
     },
     {
       id: 73,
@@ -451,7 +450,7 @@ export class Roster {
       id: 81,
       name: 'Pyra/Mythra',
       smallPortrait: 'chara_0_eflame_first_00.png',
-      aliases: ['mythra', 'aegis']
+      aliases: ['pythra', 'aegis', 'mypy']
     },
     {
       id: 82,
