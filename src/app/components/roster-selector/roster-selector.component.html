@@ -10,7 +10,7 @@
   <!-- TODO: add a filter where you can type in the fighter -->
   <ul class="roster">
     <ng-container *ngFor="let fighter of Roster.Fighters; let i = index">
-      <li class="fighter" [ngClass]="{disabled: disableFighter(fighter.id)}">
+      <li class="fighter" [ngClass]="{disabled: isDisabledFighter(fighter.id)}">
         <sdb-fighter 
           [portrait]="fighter.smallPortrait" 
           (click)="excludeFighter(fighter.id)">
@@ -18,6 +18,12 @@
       </li>
     </ng-container>
   </ul>
+
+  <div class="sub-actions-container">
+    <button mat-flat-button (click)="excludeHalf()">
+      Exclude Half
+    </button>
+  </div>
 </section>
 
 <!-- TODO: Implement button to eliminate half the roster every time -->

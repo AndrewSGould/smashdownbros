@@ -10,6 +10,17 @@ export class Roster {
     return Roster.Fighters[fighterId - 1];
   }
 
+  static addRandom(): Fighter[] {
+    var fighters = Roster.Fighters;
+    fighters.push({
+      id: 100,
+      name: 'Random',
+      smallPortrait: ''
+    });
+
+    return fighters;
+  } 
+
   get Fighters() {
     return Roster.Fighters;
   }

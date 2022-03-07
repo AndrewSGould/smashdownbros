@@ -1,13 +1,19 @@
 <section style="text-align: center; margin-top: 100px;">
   <div class="report-results">
-    <button mat-flat-button *ngIf="!matchInProgress" (click)="startMatch()">New Match</button>
-    <button mat-flat-button *ngIf="matchInProgress" (click)="finishMatch()">Report Results</button>
+    <button mat-flat-button *ngIf="!matchInProgress" 
+      (click)="startMatch()" [disabled]="crownWinner">
+      New Match
+    </button>
+    <button mat-flat-button *ngIf="matchInProgress" 
+      (click)="finishMatch()" [disabled]="crownWinner">
+      Report Results
+    </button>
   </div>
   <div class="player-portraits">
     <div *ngFor="let player of activePlayers">
       <sdb-players-pick [activePlayer]="player"></sdb-players-pick>
       <div class="match-history" *ngFor="let match of player.matchHistory">
-        <span>{{match.fighter.name}} <span>{{match.win ? '(W)' : '(L)'}}</span></span>
+        <span><span>{{match.win ? '(W)' : '(L)'}}</span> {{match.fighter.name}}</span>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ActivePlayer, Match } from 'src/app/data/player';
 import { Fighter, Roster } from 'src/app/data/roster';
 import { DataService } from 'src/app/services/data.service';
@@ -14,12 +15,14 @@ export class MatchesComponent implements OnInit {
 
   constructor(
     private sdbService: DataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { }
 
   activePlayers: Array<ActivePlayer> = [];
   fighterPool: Array<Fighter> = Roster.Fighters;
   matchInProgress: boolean = false;
+  crownWinner: boolean = false;
 
   ngOnInit(): void {
     this.sdbService.players.subscribe(response => {
@@ -27,11 +30,12 @@ export class MatchesComponent implements OnInit {
       this.activePlayers = response;
     });
 
-    this.sdbService.excludedFighters.subscribe(response => {
-      this.fighterPool = this.fighterPool.filter(fighter => !response.includes(fighter));
-    });
+    if (this.activePlayers.length === 0)
+      this.router.navigate(['/smashdown']);
 
-    console.log(this.fighterPool);
+    this.sdbService.rosterData.subscribe(response => {
+      this.fighterPool = response;
+    });
   }
 
   startMatch() {
@@ -52,8 +56,9 @@ export class MatchesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.updateMatchHistory(result);
-
       this.matchInProgress = false;
+
+      this.checkForWinner();
     });
   }
 
@@ -89,7 +94,37 @@ export class MatchesComponent implements OnInit {
         win: false
       });
     });
-    
-    console.log(this.activePlayers);
+  }
+
+  checkForWinner() {
+    //if (this.mercyRule)
+      // count the number of matches that have happened
+      // count the number of matches yet to be played
+        // leftover fighterPool.length / activePlayers.length
+      // if second place wins + leftover matches < current winners win count then end the game
+    //else 
+      // if fighterpool.length / activeplayers.length > 0
+
+    if ((this.fighterPool.length / this.activePlayers.length) < 1) {
+      let mostWinsCount = 0;
+      let potentialWinner = new ActivePlayer;
+
+      this.activePlayers.forEach(player => {
+        let winCount = 0;
+
+        player.matchHistory!.forEach(match => {
+          if (match.win)
+            winCount++;
+        });
+
+        if (mostWinsCount < winCount) {
+          mostWinsCount = winCount;
+          potentialWinner = player;
+        }
+      });
+      
+      alert(potentialWinner.name + ' wins!')
+      this.crownWinner = true;
+    }
   }
 }
