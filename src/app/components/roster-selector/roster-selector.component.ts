@@ -31,7 +31,7 @@ export class RosterSelectorComponent implements OnInit {
     this.sdbService.updateCurrentRoster(this.fighters);
     this.sdbService.updateExcludedFighters(this.disabledFighters);
   }
-
+  
   isDisabledFighter(fighterId: number) {
     return this.disabledFighters.find(fighter => fighter.id === fighterId);
   }
