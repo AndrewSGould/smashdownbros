@@ -1,10 +1,9 @@
 <section style="text-align: center;">
-  <div *ngIf="excludedFighters.length > 0; else no_excludes">
-    <ng-container *ngFor="let fighter of excludedFighters; let last = last">
-      <span *ngIf="!last">{{fighter.name}}, </span>
-      <span *ngIf="last">{{fighter.name}}</span>
-    </ng-container>
-    <span> have been disabled for this Smashdown</span>
+  <div *ngIf="excludedFighters.length > 0; else no_excludes" class="excluded-fighters-container">
+    <span>The following fighters have been disabled for this Smashdown:</span>
+    <ul class="excluded-fighters-list">
+      <li *ngFor="let fighter of excludedFighters">{{fighter.name}}</li>
+    </ul>
   </div>
   <ng-template #no_excludes>
     <span>No fighters have been disabled 
@@ -35,8 +34,7 @@
   </ng-container>
   
   <button mat-flat-button [disabled]="playerList.length < 1" (click)="submitPlayerList()"
-    routerLink="/smashdown/matches" routerLinkActive="active"  
-  >
+      routerLink="/smashdown/matches" routerLinkActive="active">
     Continue
   </button>
 </section>

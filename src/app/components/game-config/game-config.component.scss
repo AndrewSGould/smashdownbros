@@ -1,0 +1,11 @@
+.excluded-fighters-list {
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 100px;
+  max-height: 160px;
+  column-gap: 30px;
+  margin: 20px 0;
+}
