@@ -13,7 +13,8 @@ export class PlayersPickComponent {
 
   @Input() activePlayer: ActivePlayer = new ActivePlayer;
 
-  ngOnChanges() {
-
+  ngOnInit() {
+    if(this.activePlayer.currentFighter === undefined)
+      this.activePlayer.currentFighter = Roster.addRandom();
   }
 }
