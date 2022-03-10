@@ -18,6 +18,13 @@
     <sdb-sweat-toggle></sdb-sweat-toggle>
   </section>
   <section>
+    <!-- TODO: change material ui theme for primary/accent colors -->
+    <mat-slide-toggle name="Mercy" (click)="mercyClicked()">
+      Mercy Rule
+    </mat-slide-toggle>
+    <!-- <span>What is this?</span> -->
+  </section>
+  <section class="player-count-container">
     <mat-form-field appearance="fill">
       <mat-label># of players?</mat-label>
       <mat-select [(value)]="playerCount" (selectionChange)="generatePlayerList()">

@@ -5,5 +5,6 @@ export class GameConfig {
   availableRoster: Array<Fighter> = [];
   disabledFighters: Array<Fighter> = [];
   spicyMode: boolean = false;
+  mercyRule: boolean = false;
   participatingPlayers: number = 0;
 }

@@ -38,5 +38,5 @@ export class DataService {
     this.gameConfigData.next(gameConfig);
   }
 
-  //todo: change all of this to be a 'game config'?
+  //TODO: change all of this to be a 'game config'?
 }

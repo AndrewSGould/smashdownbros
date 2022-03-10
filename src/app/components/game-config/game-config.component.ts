@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from 'src/app/data/player';
 import { Fighter } from 'src/app/data/roster';
+import { GameConfig } from 'src/app/models/gameconfig';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -16,12 +17,20 @@ export class GameConfigComponent implements OnInit {
   playerList: Array<Player> = [];
   playerCount: number = 0;
   excludedFighters: Array<Fighter> = [];
+  mercyIsChecked: boolean = false;
+  gameConfig: GameConfig = new GameConfig;
 
   ngOnInit(): void {
+    this.sdbService.gameConfig.subscribe(config => {
+      this.gameConfig = config;
+    })
+
     this.sdbService.excludedFighters.subscribe(response => {
       this.excludedFighters = response;
     });
   }
+
+  //TODO: can i just make this a form?
 
   generatePlayerList() {
     // if selected multiple times, lets clear our existing array and start over
@@ -41,5 +50,11 @@ export class GameConfigComponent implements OnInit {
   bindPlayerName(event: any, index: number) {
     var input = event as HTMLInputElement;
     this.playerList[index].name = input.value;
+  }
+
+  mercyClicked() {
+    this.mercyIsChecked = !this.mercyIsChecked;
+    this.gameConfig.mercyRule = this.mercyIsChecked;
+    this.sdbService.updateGameConfig(this.gameConfig);
   }
 }

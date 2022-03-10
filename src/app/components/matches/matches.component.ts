@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ActivePlayer, Match } from 'src/app/data/player';
 import { Fighter, Roster } from 'src/app/data/roster';
+import { GameConfig } from 'src/app/models/gameconfig';
 import { DataService } from 'src/app/services/data.service';
 import { MatchWinnerComponent } from '../match-winner/match-winner.component';
 
@@ -24,6 +25,7 @@ export class MatchesComponent implements OnInit {
   matchInProgress: boolean = false;
   crownWinner: boolean = false;
   matchesRemaining: number = 0;
+  gameConfig: GameConfig = new GameConfig;
 
   ngOnInit(): void {
     this.sdbService.players.subscribe(response => {
@@ -37,6 +39,10 @@ export class MatchesComponent implements OnInit {
     this.sdbService.rosterData.subscribe(response => {
       this.fighterPool = response;
     });
+
+    this.sdbService.gameConfig.subscribe(config => {
+      this.gameConfig = config;
+    })
 
     this.matchesRemaining = Math.floor(this.fighterPool.length / this.activePlayers.length);
   }
@@ -73,7 +79,14 @@ export class MatchesComponent implements OnInit {
   }
 
   updateMatchesRemaining() {
-    this.matchesRemaining = Math.floor(this.fighterPool.length / this.activePlayers.length);
+    if (this.gameConfig.mercyRule) {
+      // get amount of matches left
+      // get amount of wins of person in first place
+      // get amount of wins of person in second place
+      // are second place wins + matches left < amount of wins first place has?
+    }
+    else
+      this.matchesRemaining = Math.floor(this.fighterPool.length / this.activePlayers.length);
   }
 
   updateMatchHistory(result: any) {
@@ -112,7 +125,8 @@ export class MatchesComponent implements OnInit {
       // if second place wins + leftover matches < current winners win count then end the game
     //else 
 
-    //todo: when adding mercy rule, refactor this
+    //TODO: what if it's a tie?
+    //TODO: when adding mercy rule, refactor this
     if ((this.fighterPool.length / this.activePlayers.length) < 1) {
       let mostWinsCount = 0;
       let potentialWinner = new ActivePlayer;

@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RosterSelectorComponent } from './components/roster-selector/roster-selector.component';
 import { GameConfigComponent } from './components/game-config/game-config.component';
 import { MatchesComponent } from './components/matches/matches.component';
@@ -39,7 +40,8 @@ import { SweatToggleDescriptorComponent } from './components/sweat-toggle/sweat-
     MatSelectModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
