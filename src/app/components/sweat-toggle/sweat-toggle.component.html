@@ -1,5 +1,7 @@
-<section style="text-align: center; margin-top: 100px;">
-  <button>Standard</button>
-  <button disabled>Spicy</button>
-  <span>What is this?</span>
+<section>
+  <button class="standard-btn" [ngClass]="{active: !sweatModeEnabled}" 
+    (click)="toggleMode(false)">Standard</button>
+  <button class="spicy-btn" [ngClass]="{active: sweatModeEnabled}" 
+    (click)="toggleMode(true)">Spicy</button>
+  <div class="help"><span (click)="openHelpDialog()">What is this?</span></div>
 </section>

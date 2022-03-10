@@ -3,10 +3,20 @@
   justify-content: center;
 }
 
-.match-history {
-  
-}
-
 .report-results {
   margin: 20px 0;
+}
+
+.match-history {
+  & > span {
+    width: 130px;
+    text-align: left;
+    display: inline-block;
+    white-space: nowrap;
+
+    & > span {
+      width: 24px;
+      display: inline-block;
+    }
+  }
 }

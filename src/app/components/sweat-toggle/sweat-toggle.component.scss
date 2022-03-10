@@ -1,0 +1,37 @@
+button {
+  color: white;
+  width: 200px;
+  height: 100px;
+  margin: 0 20px;
+  text-transform: uppercase;
+	text-decoration: none;
+  font-size: 1.4rem;
+	background: #990e0c;
+	padding: 20px;
+	border-radius: 5px;
+  border: 2px solid darken(#990e0c, 20%);
+	display: inline-block;
+	transition: all 0.4s ease 0s;
+  cursor: pointer;
+  opacity: .3;
+
+  &:hover {
+    background: #434343;
+    letter-spacing: 1px;
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    opacity: 1;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.help {
+  font-size: .6rem;
+
+  & > span {
+    cursor: pointer;
+  }
+}

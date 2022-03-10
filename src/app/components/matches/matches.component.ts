@@ -23,6 +23,7 @@ export class MatchesComponent implements OnInit {
   fighterPool: Array<Fighter> = Roster.Fighters;
   matchInProgress: boolean = false;
   crownWinner: boolean = false;
+  matchesRemaining: number = 0;
 
   ngOnInit(): void {
     this.sdbService.players.subscribe(response => {
@@ -36,6 +37,8 @@ export class MatchesComponent implements OnInit {
     this.sdbService.rosterData.subscribe(response => {
       this.fighterPool = response;
     });
+
+    this.matchesRemaining = Math.floor(this.fighterPool.length / this.activePlayers.length);
   }
 
   startMatch() {
@@ -58,6 +61,7 @@ export class MatchesComponent implements OnInit {
       this.updateMatchHistory(result);
       this.matchInProgress = false;
 
+      this.updateMatchesRemaining();
       this.checkForWinner();
     });
   }
@@ -66,6 +70,10 @@ export class MatchesComponent implements OnInit {
     this.activePlayers.forEach(player => {
       this.fighterPool = this.fighterPool.filter(fighter => fighter.id != player.currentFighter?.id);
     });
+  }
+
+  updateMatchesRemaining() {
+    this.matchesRemaining = Math.floor(this.fighterPool.length / this.activePlayers.length);
   }
 
   updateMatchHistory(result: any) {
@@ -95,7 +103,7 @@ export class MatchesComponent implements OnInit {
       });
     });
   }
-
+  
   checkForWinner() {
     //if (this.mercyRule)
       // count the number of matches that have happened
@@ -103,8 +111,8 @@ export class MatchesComponent implements OnInit {
         // leftover fighterPool.length / activePlayers.length
       // if second place wins + leftover matches < current winners win count then end the game
     //else 
-      // if fighterpool.length / activeplayers.length > 0
 
+    //todo: when adding mercy rule, refactor this
     if ((this.fighterPool.length / this.activePlayers.length) < 1) {
       let mostWinsCount = 0;
       let potentialWinner = new ActivePlayer;

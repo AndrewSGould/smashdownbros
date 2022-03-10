@@ -16,6 +16,7 @@ import { MatchesComponent } from './components/matches/matches.component';
 import { SweatToggleComponent } from './components/sweat-toggle/sweat-toggle.component';
 import { PlayersPickComponent } from './components/players-pick/players-pick.component';
 import { MatchWinnerComponent } from './components/match-winner/match-winner.component';
+import { SweatToggleDescriptorComponent } from './components/sweat-toggle/sweat-toggle-descriptor/sweat-toggle-descriptor.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatchWinnerComponent } from './components/match-winner/match-winner.com
     MatchesComponent,
     SweatToggleComponent,
     PlayersPickComponent,
-    MatchWinnerComponent
+    MatchWinnerComponent,
+    SweatToggleDescriptorComponent
   ],
   imports: [
     BrowserModule,

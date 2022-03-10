@@ -8,6 +8,7 @@
       (click)="finishMatch()" [disabled]="crownWinner">
       Report Results
     </button>
+    <h3>Matches remaining: {{matchesRemaining}}</h3>
   </div>
   <div class="player-portraits">
     <div *ngFor="let player of activePlayers">
