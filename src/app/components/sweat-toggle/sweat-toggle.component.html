@@ -1,7 +1,7 @@
 <section>
   <button class="standard-btn" [ngClass]="{active: !sweatModeEnabled}" 
     (click)="toggleMode(false)">Standard</button>
-  <button class="spicy-btn" [ngClass]="{active: sweatModeEnabled}" 
-    (click)="toggleMode(true)">Spicy</button>
+  <button disabled class="spicy-btn" [ngClass]="{active: sweatModeEnabled}" 
+    (click)="toggleMode(true)" title="This feature is coming soon!">Spicy</button>
   <div class="help"><span (click)="openHelpDialog()">What is this?</span></div>
 </section>

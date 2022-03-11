@@ -26,12 +26,16 @@ button {
   &.active {
     opacity: 1;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .help {
   font-size: .6rem;
 
   & > span {
-    cursor: pointer;
+    cursor: help;
   }
 }
