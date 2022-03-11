@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ActivePlayer, Match } from 'src/app/data/player';
+import { ActivePlayer, Match, Player, Record } from 'src/app/data/player';
 import { Fighter, Roster } from 'src/app/data/roster';
 import { GameConfig } from 'src/app/models/gameconfig';
 import { DataService } from 'src/app/services/data.service';
@@ -26,6 +26,7 @@ export class MatchesComponent implements OnInit {
   crownWinner: boolean = false;
   matchesRemaining: number = 0;
   gameConfig: GameConfig = new GameConfig;
+  playerRankings: Array<ActivePlayer> = [];
 
   ngOnInit(): void {
     this.sdbService.players.subscribe(response => {
@@ -69,6 +70,9 @@ export class MatchesComponent implements OnInit {
 
       this.updateMatchesRemaining();
       this.checkForWinner();
+
+      console.log(this.activePlayers);
+      console.log(this.fighterPool);
     });
   }
 
@@ -79,14 +83,8 @@ export class MatchesComponent implements OnInit {
   }
 
   updateMatchesRemaining() {
-    if (this.gameConfig.mercyRule) {
-      // get amount of matches left
-      // get amount of wins of person in first place
-      // get amount of wins of person in second place
-      // are second place wins + matches left < amount of wins first place has?
-    }
-    else
-      this.matchesRemaining = Math.floor(this.fighterPool.length / this.activePlayers.length);
+    //TODO: for mercy rule, just asterik the matches remaining and explain it?
+    this.matchesRemaining = Math.floor(this.fighterPool.length / this.activePlayers.length);
   }
 
   updateMatchHistory(result: any) {
@@ -106,6 +104,9 @@ export class MatchesComponent implements OnInit {
       win: true
     });
 
+    this.updatePlayerRecord(newWinner, true);
+
+
     losers.forEach(loser => {
       var otherPlayers = this.activePlayers.filter(player => player != loser);
 
@@ -114,39 +115,57 @@ export class MatchesComponent implements OnInit {
         fighter: loser.currentFighter!,
         win: false
       });
+
+      this.updatePlayerRecord(loser, false);
     });
   }
   
   checkForWinner() {
-    //if (this.mercyRule)
-      // count the number of matches that have happened
-      // count the number of matches yet to be played
-        // leftover fighterPool.length / activePlayers.length
-      // if second place wins + leftover matches < current winners win count then end the game
-    //else 
-
-    //TODO: what if it's a tie?
-    //TODO: when adding mercy rule, refactor this
-    if ((this.fighterPool.length / this.activePlayers.length) < 1) {
-      let mostWinsCount = 0;
-      let potentialWinner = new ActivePlayer;
-
-      this.activePlayers.forEach(player => {
-        let winCount = 0;
-
-        player.matchHistory!.forEach(match => {
-          if (match.win)
-            winCount++;
-        });
-
-        if (mostWinsCount < winCount) {
-          mostWinsCount = winCount;
-          potentialWinner = player;
-        }
-      });
-      
-      alert(potentialWinner.name + ' wins!')
-      this.crownWinner = true;
+    if (this.gameConfig.mercyRule) {
+      var playerRankings = this.activePlayers.slice().sort((a, b) => (b.record!.totalWins - a.record!.totalWins));
+      if (playerRankings[1].record!.totalWins + this.matchesRemaining < playerRankings[0].record!.totalWins)
+        this.matchComplete(playerRankings[0]);
     }
+    else {
+      //TODO: what if it's a tie?
+      //TODO: when adding mercy rule, refactor this
+      if ((this.fighterPool.length / this.activePlayers.length) < 1) {
+        let mostWinsCount = 0;
+        let potentialWinner = new ActivePlayer;
+
+        this.activePlayers.forEach(player => {
+          let winCount = 0;
+
+          player.matchHistory!.forEach(match => {
+            if (match.win)
+              winCount++;
+          });
+
+          if (mostWinsCount < winCount) {
+            mostWinsCount = winCount;
+            potentialWinner = player;
+          }
+        });
+        
+        this.matchComplete(potentialWinner);
+      }
+    }
+  }
+
+  matchComplete(winner: ActivePlayer) {
+    alert(winner.name + ' wins!')
+    this.crownWinner = true;
+
+    this.sdbService.updatePlayerList(this.activePlayers);
+  }
+
+  private updatePlayerRecord(player: ActivePlayer, playerWon: boolean) {
+    if (player.record === undefined)
+      player.record = new Record;
+
+    if(playerWon)
+      player.record.totalWins++;
+    else
+      player.record.totalLosses++;
   }
 }

@@ -13,6 +13,12 @@
   <div class="player-portraits">
     <div *ngFor="let player of activePlayers">
       <sdb-players-pick [activePlayer]="player"></sdb-players-pick>
+      <div class="win-loss-container">
+        <span>Wins: {{player.record !== undefined ? 
+            player.record.totalWins : '0'}}</span>
+        <span>Losses: {{player.record !== undefined ? 
+          player.record.totalLosses : '0'}}</span>
+      </div>
       <div class="match-history" *ngFor="let match of player.matchHistory">
         <span><span>{{match.win ? '(W)' : '(L)'}}</span> {{match.fighter.name}}</span>
       </div>

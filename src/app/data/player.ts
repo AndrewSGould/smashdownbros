@@ -7,10 +7,16 @@ export class Player {
 export class ActivePlayer extends Player {
   currentFighter?: Fighter = new Fighter;
   matchHistory?: Array<Match> = [];
+  record?: Record = new Record;
 }
 
 export class Match {
   opponents: Array<ActivePlayer> = [];
   fighter: Fighter = new Fighter;
   win: boolean = false;
+}
+
+export class Record {
+  totalWins: number = 0;
+  totalLosses: number = 0;
 }

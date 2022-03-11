@@ -20,3 +20,12 @@
     }
   }
 }
+
+.win-loss-container {
+  margin: 10px;
+  opacity: .7;
+
+  & > span {
+    margin: 10px;
+  }
+}
