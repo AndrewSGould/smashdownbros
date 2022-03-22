@@ -122,6 +122,7 @@ export class MatchesComponent implements OnInit {
   
   checkForWinner() {
     if (this.gameConfig.mercyRule) {
+      // get the active players current rankings, sorted by 1st to last place
       var playerRankings = this.activePlayers.slice().sort((a, b) => (b.record!.totalWins - a.record!.totalWins));
       if (playerRankings[1].record!.totalWins + this.matchesRemaining < playerRankings[0].record!.totalWins)
         this.matchComplete(playerRankings[0]);

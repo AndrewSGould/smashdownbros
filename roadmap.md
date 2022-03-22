@@ -28,7 +28,33 @@
 
 * Dodges: Configure 0 - X dodges, allowing a player chances to 'dodge' a character that was randomly drawn. It will be possible for the dodged character to be rolled again. 0 for no dodges
 
-## Version 3 - Multiplayer
+## Version 3 - Iron Man
+
+* Enable Iron Man mode, where you get a configurable amount of characters
+
+* Characters can be random or picked to win with
+
+* Feature where you can track stock count from match-to-match
+
+* Feature that allows the loser to pick their next character from their pool of characters
+
+* When the loser is picking, display the current winners character and stock count
+
+* Have an overall stock count for the whole match
+
+* Note: Iron Man's can have character dupes
+
+* 'Spicy Mode'
+
+## Version 4 - Squad Strike
+
+* 3 or 5 characters picks
+
+* 'Spicy Mode'
+
+* match history shows which character beat which character. maybe similar to smush ui?
+
+## Version 5 - Multiplayer
 
 * Allow multiple people to connect and see the same data at the same time
 
@@ -36,13 +62,13 @@
 
 * Any data change will push to all players connected to SDB instance
 
-## Version 4 - Statistics
+## Version 6 - Statistics
 
 * Store character-specific win/loss rates across all games
 
 * Store pick/ban/dodge rates
 
-## Version 5? - Player Profiles
+## Version 7 - Player Profiles
 
 * Allow login/authentication
 
