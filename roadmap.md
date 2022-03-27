@@ -20,15 +20,7 @@
 
 * Mercy rule
 
-## Version 2 - Pick, Ban, Dodge
-
-* Picks: Configure 0 - X picks, allowing each player to secure characters they want to play. 0 for pure random
-
-* Bans: Configure 0 - X bans, allowing each player to ban out opponent's strong characters. 0 for no bans
-
-* Dodges: Configure 0 - X dodges, allowing a player chances to 'dodge' a character that was randomly drawn. It will be possible for the dodged character to be rolled again. 0 for no dodges
-
-## Version 3 - Iron Man
+## Version 2 - Iron Man
 
 * Enable Iron Man mode, where you get a configurable amount of characters
 
@@ -48,7 +40,7 @@
 
 * 'Spicy Mode'
 
-## Version 4 - Cross Bingo
+## Version 3 - Cross Bingo
 
 * Each player gets a 5x5 grid of random characters
 
@@ -59,6 +51,14 @@
 * To win, you need to win on each character in a line - 5 down, 5 across, or 5 diagonal
 
 * Should center space be free? Or random? If random, When choosing middle/random, you select the random slot every time
+
+## Version 4 - Pick, Ban, Dodge
+
+* Picks: Configure 0 - X picks, allowing each player to secure characters they want to play. 0 for pure random
+
+* Bans: Configure 0 - X bans, allowing each player to ban out opponent's strong characters. 0 for no bans
+
+* Dodges: Configure 0 - X dodges, allowing a player chances to 'dodge' a character that was randomly drawn. It will be possible for the dodged character to be rolled again. 0 for no dodges
 
 ## Version 5 - Multiplayer
 
