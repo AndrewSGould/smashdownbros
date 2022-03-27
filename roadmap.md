@@ -44,15 +44,21 @@
 
 * Note: Iron Man's can have character dupes
 
-* 'Spicy Mode'
-
-## Version 4 - Squad Strike
-
-* 3 or 5 characters picks
+* Match history with kill amounts for each char
 
 * 'Spicy Mode'
 
-* match history shows which character beat which character. maybe similar to smush ui?
+## Version 4 - Cross Bingo
+
+* Each player gets a 5x5 grid of random characters
+
+  * Should these allow dupes or no? Toggleable?
+
+* Match history
+
+* To win, you need to win on each character in a line - 5 down, 5 across, or 5 diagonal
+
+* Should center space be free? Or random? If random, When choosing middle/random, you select the random slot every time
 
 ## Version 5 - Multiplayer
 

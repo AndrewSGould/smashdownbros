@@ -42,6 +42,10 @@ export class GameConfigComponent implements OnInit {
   }
 
   submitPlayerList() {
+    this.playerList.forEach((player, i) => {
+      if (!player.name) player.name = `Player ${i+1}`
+    });
+
     this.sdbService.updatePlayerList(this.playerList);
     //TODO: players names MUST be unique (do they have to be?)
     //TODO: other error handling stuff

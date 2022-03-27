@@ -106,7 +106,6 @@ export class MatchesComponent implements OnInit {
 
     this.updatePlayerRecord(newWinner, true);
 
-
     losers.forEach(loser => {
       var otherPlayers = this.activePlayers.filter(player => player != loser);
 
@@ -122,10 +121,12 @@ export class MatchesComponent implements OnInit {
   
   checkForWinner() {
     if (this.gameConfig.mercyRule) {
-      // get the active players current rankings, sorted by 1st to last place
-      var playerRankings = this.activePlayers.slice().sort((a, b) => (b.record!.totalWins - a.record!.totalWins));
-      if (playerRankings[1].record!.totalWins + this.matchesRemaining < playerRankings[0].record!.totalWins)
-        this.matchComplete(playerRankings[0]);
+      //TODO: do we want a notification when someone is in danger of losing
+      // due to the mercy rule? currently the 'matches remaining' can be 
+      // misleading with the mercy rule on
+      if (this.getPlayerStanding(2).record!.totalWins + this.matchesRemaining 
+              < this.getPlayerStanding(1).record!.totalWins)
+        this.matchComplete(this.getPlayerStanding(1));
     }
     else {
       //TODO: what if it's a tie?
@@ -156,8 +157,15 @@ export class MatchesComponent implements OnInit {
   matchComplete(winner: ActivePlayer) {
     alert(winner.name + ' wins!')
     this.crownWinner = true;
+    this.matchesRemaining = 0;
 
     this.sdbService.updatePlayerList(this.activePlayers);
+  }
+
+  getPlayerStanding(placement: number) {
+    var playerRankings = this.activePlayers.slice()
+                        .sort((a, b) => (b.record!.totalWins - a.record!.totalWins));
+    return playerRankings[placement - 1];
   }
 
   private updatePlayerRecord(player: ActivePlayer, playerWon: boolean) {

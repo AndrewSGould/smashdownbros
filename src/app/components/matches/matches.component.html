@@ -1,17 +1,22 @@
 <section style="text-align: center; margin-top: 100px;">
   <div class="report-results">
-    <button mat-flat-button *ngIf="!matchInProgress" 
+    <button mat-flat-button *ngIf="!matchInProgress && !crownWinner" 
       (click)="startMatch()" [disabled]="crownWinner">
       New Match
     </button>
-    <button mat-flat-button *ngIf="matchInProgress" 
+    <button mat-flat-button *ngIf="matchInProgress && !crownWinner" 
       (click)="finishMatch()" [disabled]="crownWinner">
       Report Results
+    </button>
+    <button mat-flat-button routerLink="/smashdown" routerLinkActive="active"
+      *ngIf="crownWinner">
+      Restart?
     </button>
     <h3>Matches remaining: {{matchesRemaining}}</h3>
   </div>
   <div class="player-portraits">
-    <div *ngFor="let player of activePlayers">
+    <div *ngFor="let player of activePlayers"
+      [ngClass]="{'player-lost' : crownWinner && getPlayerStanding(1) !== player}">
       <sdb-players-pick [activePlayer]="player"></sdb-players-pick>
       <div class="win-loss-container">
         <span>Wins: {{player.record !== undefined ? 
@@ -19,8 +24,10 @@
         <span>Losses: {{player.record !== undefined ? 
           player.record.totalLosses : '0'}}</span>
       </div>
-      <div class="match-history" *ngFor="let match of player.matchHistory">
-        <span><span>{{match.win ? '(W)' : '(L)'}}</span> {{match.fighter.name}}</span>
+      <div class="match-history" *ngFor="let match of player.matchHistory | reverse; let first = first">
+        <span [ngClass]="{'recent-match' : first}">
+          <span>{{match.win ? '(W)' : '(L)'}}</span> {{match.fighter.name}}
+        </span>
       </div>
     </div>
   </div>

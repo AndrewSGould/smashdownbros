@@ -18,6 +18,7 @@ import { SweatToggleComponent } from './components/sweat-toggle/sweat-toggle.com
 import { PlayersPickComponent } from './components/players-pick/players-pick.component';
 import { MatchWinnerComponent } from './components/match-winner/match-winner.component';
 import { SweatToggleDescriptorComponent } from './components/sweat-toggle/sweat-toggle-descriptor/sweat-toggle-descriptor.component';
+import { ReversePipe } from './pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SweatToggleDescriptorComponent } from './components/sweat-toggle/sweat-
     SweatToggleComponent,
     PlayersPickComponent,
     MatchWinnerComponent,
-    SweatToggleDescriptorComponent
+    SweatToggleDescriptorComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

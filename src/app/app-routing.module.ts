@@ -8,6 +8,7 @@ import { SmashdownComponent } from './components/smashdown/smashdown.component';
 import { SweatToggleComponent } from './components/sweat-toggle/sweat-toggle.component';
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', component: LandingComponent },
   { path: 'smashdown', component: SmashdownComponent,
     children: [
@@ -18,8 +19,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'roster-edit', pathMatch: 'full' }
     ] 
   },
-  
-  { path: '',   redirectTo: '/landing', pathMatch: 'full' },
   { path: '**', component: LandingComponent } //TODO: add pagenotfound
 ];
 
