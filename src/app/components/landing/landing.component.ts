@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
+  //TODO: have an icon or banner to allow user to quickly go back to home
+
   constructor() { }
 
   ngOnInit(): void {

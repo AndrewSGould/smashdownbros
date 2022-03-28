@@ -32,8 +32,6 @@
 
 * When the loser is picking, display the current winners character and stock count
 
-* Have an overall stock count for the whole match
-
 * Note: Iron Man's can have character dupes
 
 * Match history with kill amounts for each char

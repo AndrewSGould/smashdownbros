@@ -1,0 +1,27 @@
+<section style="text-align: center;">
+  <h2>Select your fighters!</h2>
+  <div class="actions-container">
+    <button mat-flat-button style="width:100px;" routerLink="/ironman/matches" routerLinkActive="active"
+      [disabled]="!checkIfFighterSelectionsMade()">
+      Continue
+    </button>
+  </div>
+  <br />
+  <ng-container>
+    <div>
+      <button mat-button *ngFor="let player of activePlayers;" style="margin: 0 10px;"
+        (click)="currentPlayer = player" [ngClass]="{'active' : currentPlayer == player}">
+        {{player.name}}
+      </button>
+    </div>
+    <br />
+    Picks remaining: {{gameConfig.maxRosterSize - 
+        (!currentPlayer.fighterPool ? 0 : currentPlayer.fighterPool.length)}}
+    <br />
+    <sdb-roster-select 
+      (fighterAdded)="updatePlayerRoster($event, currentPlayer)" 
+      [fighter-limit]="gameConfig.maxRosterSize"
+      [preselect-list]="currentPlayer.fighterPool"
+    ></sdb-roster-select>
+  </ng-container>
+</section>

@@ -1,0 +1,14 @@
+<section class="ironman-match">
+  <div *ngFor="let player of activePlayers;">
+    <h1>{{player.name}}</h1>
+    <div class="player-roster">
+      <div *ngFor="let fighter of player.fighterPool">
+        <li class="fighter">
+          <sdb-fighter
+            [portrait]="fighter.smallPortrait">
+          </sdb-fighter>
+        </li>
+      </div>
+    </div>
+  </div>
+</section>

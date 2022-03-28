@@ -12,13 +12,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RosterSelectorComponent } from './components/roster-selector/roster-selector.component';
-import { GameConfigComponent } from './components/game-config/game-config.component';
-import { MatchesComponent } from './components/matches/matches.component';
+import { SmashdownConfigComponent } from './components/smashdown/smashdown-config/smashdown-config.component';
+import { SmashdownMatchesComponent } from './components/smashdown/smashdown-matches/matches.component';
 import { SweatToggleComponent } from './components/sweat-toggle/sweat-toggle.component';
 import { PlayersPickComponent } from './components/players-pick/players-pick.component';
 import { MatchWinnerComponent } from './components/match-winner/match-winner.component';
 import { SweatToggleDescriptorComponent } from './components/sweat-toggle/sweat-toggle-descriptor/sweat-toggle-descriptor.component';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { IronmanComponent } from './components/ironman/ironman.component';
+import { IronmanConfigComponent } from './components/ironman/ironman-config/ironman-config.component';
+import { IronmanMatchComponent } from './components/ironman/ironman-match/ironman-match.component';
+import { RosterSelectComponent } from './components/roster-select/roster-select.component';
+import { IronmanRosterComponent } from './components/ironman/ironman-roster/ironman-roster.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,14 +32,19 @@ import { ReversePipe } from './pipes/reverse.pipe';
     FighterComponent,
     SmashdownComponent,
     LandingComponent,
+    RosterSelectComponent,
     RosterSelectorComponent,
-    GameConfigComponent,
-    MatchesComponent,
+    SmashdownConfigComponent,
+    SmashdownMatchesComponent,
     SweatToggleComponent,
     PlayersPickComponent,
     MatchWinnerComponent,
     SweatToggleDescriptorComponent,
-    ReversePipe
+    ReversePipe,
+    IronmanComponent,
+    IronmanConfigComponent,
+    IronmanMatchComponent,
+    IronmanRosterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +54,8 @@ import { ReversePipe } from './pipes/reverse.pipe';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

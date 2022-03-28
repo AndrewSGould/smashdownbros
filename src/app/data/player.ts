@@ -5,6 +5,7 @@ export class Player {
 }
 
 export class ActivePlayer extends Player {
+  fighterPool?: Array<Fighter> = [];
   currentFighter?: Fighter = new Fighter;
   matchHistory?: Array<Match> = [];
   record?: Record = new Record;

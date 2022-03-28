@@ -1,0 +1,29 @@
+.ironman-match {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fighter {
+  list-style: none;
+  height: 100px;
+  line-height: 0;
+  background-color: rgb(181, 236, 255);
+  border: 1px solid rgba(0, 0, 0, 0.835);
+  box-shadow: inset 0 0 10px #00000067;
+  cursor: pointer;
+  transition: all .2s linear;
+
+  &:hover {
+    //TODO: overlay red x?
+    box-shadow: none;
+    transform: scale(1.1);
+    z-index: 5;
+  }
+  //TODO: why do i need to set the height on this component?
+}
+
+.player-roster {
+  display: flex;
+  flex-wrap: wrap;
+  width: 520px;
+}

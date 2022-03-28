@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatchesComponent } from './matches.component';
+import { IronmanRosterComponent } from './ironman-roster.component';
 
-describe('MatchesComponent', () => {
-  let component: MatchesComponent;
-  let fixture: ComponentFixture<MatchesComponent>;
+describe('IronmanRosterComponent', () => {
+  let component: IronmanRosterComponent;
+  let fixture: ComponentFixture<IronmanRosterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MatchesComponent ]
+      declarations: [ IronmanRosterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatchesComponent);
+    fixture = TestBed.createComponent(IronmanRosterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

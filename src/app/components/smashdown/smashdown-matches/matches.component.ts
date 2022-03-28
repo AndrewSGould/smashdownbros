@@ -5,14 +5,14 @@ import { ActivePlayer, Match, Player, Record } from 'src/app/data/player';
 import { Fighter, Roster } from 'src/app/data/roster';
 import { GameConfig } from 'src/app/models/gameconfig';
 import { DataService } from 'src/app/services/data.service';
-import { MatchWinnerComponent } from '../match-winner/match-winner.component';
+import { MatchWinnerComponent } from '../../match-winner/match-winner.component';
 
 @Component({
   selector: 'sdb-matches',
   templateUrl: './matches.component.html',
   styleUrls: ['./matches.component.scss']
 })
-export class MatchesComponent implements OnInit {
+export class SmashdownMatchesComponent implements OnInit {
 
   constructor(
     private sdbService: DataService,
@@ -29,9 +29,8 @@ export class MatchesComponent implements OnInit {
   playerRankings: Array<ActivePlayer> = [];
 
   ngOnInit(): void {
-    this.sdbService.players.subscribe(response => {
-      this.activePlayers = new Array<ActivePlayer>();
-      this.activePlayers = response;
+    this.sdbService.activePlayers.subscribe(activePlayers => {
+      this.activePlayers = activePlayers;
     });
 
     if (this.activePlayers.length === 0)
@@ -159,7 +158,7 @@ export class MatchesComponent implements OnInit {
     this.crownWinner = true;
     this.matchesRemaining = 0;
 
-    this.sdbService.updatePlayerList(this.activePlayers);
+    this.sdbService.updateActivePlayers(this.activePlayers);
   }
 
   getPlayerStanding(placement: number) {

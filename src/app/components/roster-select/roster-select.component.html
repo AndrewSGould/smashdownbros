@@ -1,0 +1,15 @@
+<section style="text-align: center;">
+
+  <!-- TODO: add a filter where you can type in the fighter -->
+  <ul class="roster">
+    <ng-container *ngFor="let fighter of Roster.Fighters; let i = index">
+      <li class="fighter" [ngClass]="{picked: isSelectedFighter(fighter.id)}">
+        <sdb-fighter 
+          [portrait]="fighter.smallPortrait" 
+          (click)="fighterSelected(fighter)">
+        </sdb-fighter>
+      </li>
+    </ng-container>
+  </ul>
+
+</section>

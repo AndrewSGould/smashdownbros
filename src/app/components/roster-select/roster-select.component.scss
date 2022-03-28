@@ -1,0 +1,37 @@
+.roster {
+  list-style: none;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 0 0;
+  max-width: 1326px;
+  margin: auto;
+}
+
+.fighter {
+  line-height: 0;
+  background-color: rgb(181, 236, 255);
+  border: 1px solid rgba(0, 0, 0, 0.835);
+  box-shadow: inset 0 0 10px #00000067;
+  cursor: pointer;
+  transition: .2s linear;
+  transition-property: box-shadow;
+  transition-property: transform;
+  transition-property: filter;
+  filter: saturate(30%) opacity(.45);
+
+  &.picked {
+    filter: saturate(100%) opacity(1);
+  }
+
+  &:hover {
+    filter: saturate(100%) opacity(1);
+    box-shadow: none;
+    transform: scale(1.1);
+    z-index: 5;
+  }
+}
+
+.actions-container, .sub-actions-container {
+  margin: 20px;
+}

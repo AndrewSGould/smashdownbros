@@ -6,10 +6,10 @@ import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'sdb-game-config',
-  templateUrl: './game-config.component.html',
-  styleUrls: ['./game-config.component.scss']
+  templateUrl: './smashdown-config.component.html',
+  styleUrls: ['./smashdown-config.component.scss']
 })
-export class GameConfigComponent implements OnInit {
+export class SmashdownConfigComponent implements OnInit {
 
   constructor(private sdbService: DataService) { }
 
@@ -19,6 +19,8 @@ export class GameConfigComponent implements OnInit {
   excludedFighters: Array<Fighter> = [];
   mercyIsChecked: boolean = false;
   gameConfig: GameConfig = new GameConfig;
+
+  //TODO: spicy mode
 
   ngOnInit(): void {
     this.sdbService.gameConfig.subscribe(config => {
@@ -46,8 +48,7 @@ export class GameConfigComponent implements OnInit {
       if (!player.name) player.name = `Player ${i+1}`
     });
 
-    this.sdbService.updatePlayerList(this.playerList);
-    //TODO: players names MUST be unique (do they have to be?)
+    this.sdbService.updateActivePlayers(this.playerList);
     //TODO: other error handling stuff
   }
 

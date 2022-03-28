@@ -14,7 +14,7 @@ export class RosterSelectorComponent implements OnInit {
 
   disabledFighters: Array<Fighter> = [];
   Roster: Roster = Roster;
-  fighters: Fighter[] = [];
+  fighters: Array<Fighter> = [];
 
   ngOnInit(): void {
     this.fighters = Roster.Fighters;
